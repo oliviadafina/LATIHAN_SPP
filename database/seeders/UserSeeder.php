@@ -25,6 +25,11 @@ class UserSeeder extends Seeder
             'nama_petugas'  => 'Olivia',
             'level'         => 'admin'
         ]);
-       
+        User::create([
+            'username'      => 'petugas',
+            'password'      => Hash::make('petugas'),
+            'nama_petugas'  => 'Aulia',
+            'level'         => 'petugas'
+        ]);
     }
 }

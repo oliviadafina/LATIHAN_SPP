@@ -17,7 +17,6 @@ return new class extends Migration
             $table->char('nisn', 10)->primary();
             $table->char('nis', 8);
             $table->string('nama', 35);
-            $table->string('password');
 
             $table->unsignedBiginteger('id_kelas');
             $table->foreign('id_kelas')->references('id_kelas')->on('kelas')->onDelete('cascade')->onUpdate('cascade');
@@ -27,7 +26,6 @@ return new class extends Migration
 
             $table->unsignedBiginteger('id_spp');
             $table->foreign('id_spp')->references('id_spp')->on('spp')->onDelete('cascade')->onUpdate('cascade');
-
 
             $table->timestamps();
         });
