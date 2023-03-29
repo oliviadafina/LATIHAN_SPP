@@ -43,7 +43,7 @@
           <a class="nav-link active" aria-current="page" href="{{ route('siswa.index') }}">Siswa</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Petugas</a>
+          <a class="nav-link" href="{{ route('petugas.index') }}">Petugas</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

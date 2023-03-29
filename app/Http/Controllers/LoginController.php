@@ -11,8 +11,8 @@ class LoginController extends Controller
 {
     public function login()
     {
-        return view('login', [
-            "title"     => "SPP | Login"
+        return view('loginadm', [
+            "title"     => "SPP | Masuk Admin"
         ]);
     }
     public function actionlogin(Request $request){
@@ -24,13 +24,13 @@ class LoginController extends Controller
         if(Auth::attempt($data)){
             return redirect('/dashboard');
         } else {
-            return redirect('/')->with('error', 'Periksa Nama Pengguna dan Password Anda!');
+            return redirect('/loginadm')->with('error', 'Periksa Nama Pengguna dan Password Anda!');
         }
     }
     public function logout(){
         Auth::logout();
         request()->session()->invalidate();
         request()->session()->regenerateToken();
-        return redirect('/');
+        return redirect('/loginadm');
     }
 }

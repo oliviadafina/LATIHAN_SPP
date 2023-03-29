@@ -1,4 +1,4 @@
-@extends('template.utama')
+@extends('template.temad')
 @section('content')
     <div class="container">
      <div class="row justify-content-center">

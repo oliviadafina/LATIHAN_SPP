@@ -4,7 +4,7 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <meta http-equiv="X-UA-Compatible" content="ie=edge">
- <title>SPP | EDIT SISWA</title>
+ <title>SPP | EDIT PETUGAS</title>
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
 <body>
@@ -30,58 +30,36 @@
     @endif 
     <div class="card">
      <div class="card-body">
-      <h3 class="fw-bold text-center pb-2">Perbarui Data Siswa</h3>
+      <h3 class="fw-bold text-center pb-2">Perbarui Data Petugas</h3>
       <hr>
-       <form action="{{ route('siswa.update', $siswa->nisn) }}" method="POST">
+       <form action="{{ route('petugas.update', $petugas->id) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="form-group">
-         <label for="nisn">NISN:</label>
-         <input type="number" class="form-control" name="nisn" value="{{ old('nisn', $siswa->nisn) }}" required>
+         <label for="username">Username:</label>
+         <input type="text" class="form-control" name="username" value="{{ old('username', $petugas->username) }}" required>
         </div>
         <br>
         <div class="form-group">
-         <label for="nis">NIS:</label>
-         <input type="number" class="form-control" name="nis" value="{{ old('nis', $siswa->nis) }}" required>
+         <label for="password">Password:</label>
+         <input type="text" class="form-control" name="password" value="{{ old('password', $petugas->password) }}" required>
         </div>
         <br>
         <div class="form-group">
-         <label for="nama">Nama:</label>
-         <input type="text" class="form-control" name="nama" value="{{ old('nama', $siswa->nama) }}" required>
+         <label for="nama_petugas">Nama Petugas:</label>
+         <input type="text" class="form-control" name="nama_petugas" value="{{ old('nama_petugas', $petugas->nama_petugas) }}" required>
         </div>
         <br>
         <div class="form-group">
-         <label for="id_kelas">Kelas:</label>
-         <select name="id_kelas" class="form-control" required>
-             <option value="1" {{ $siswa->id_kelas == 1 ? 'selected':'' }}>XII RPL</option>
-             <option value="2" {{ $siswa->id_kelas == 2 ? 'selected':'' }}>XII TKJ</option>
-             <option value="3" {{ $siswa->id_kelas == 3 ? 'selected':'' }}>XII MM</option>
-         </select>
-        </div>
-        <br>
-        <div class="form-group">
-         <label for="alamat">Alamat:</label>
-         <textarea
-             name="alamat" id="alamat"
-             class="form-control" name="alamat" id="alamat" required>{{ old('alamat', $siswa->alamat) }}</textarea>
-        </div>
-        <br>
-        <div class="form-group">
-         <label for="no_telp">No. Telepon:</label>
-         <input type="number" class="form-control" name="no_telp" value="{{ old('no_telp', $siswa->no_telp) }}" required>
-        </div>
-        <br>
-        <div class="form-group">
-         <label for="id_spp">ID. SPP:</label>
-         <select name="id_spp" class="form-control" required>
-             <option value="1" {{ $siswa->id_spp == 1 ? 'selected':'' }}>2021</option>
-             <option value="2" {{ $siswa->id_spp == 2 ? 'selected':'' }}>2022</option>
-             <option value="3" {{ $siswa->id_spp == 3 ? 'selected':'' }}>2023</option>
+         <label for="level">Level:</label>
+         <select name="level" class="form-control" value="{{ old('level', $petugas->level) }}" disabled required>
+             <option value="admin" {{ $petugas->level == 'admin' ? 'selected':'' }}>Admin</option>
+             <option value="petugas" {{ $petugas->level == 2 ? 'selected':'' }}>Petugas</option>
          </select>
         </div>
         <br>
         <button type="submit" class="btn btn-outline-primary">PERBARUI</button>
-        <a href="{{ route('siswa.index') }}" class="btn btn-outline-dark">KEMBALI</a>
+        <a href="{{ route('petugas.index') }}" class="btn btn-outline-dark">KEMBALI</a>
        </form>
      </div>
    </div>
